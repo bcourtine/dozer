@@ -89,14 +89,14 @@
 
         <!-- EL -->
         <dependency>
-            <groupId>javax.el</groupId>
-            <artifactId>javax.el-api</artifactId>
+            <groupId>jakarta.el</groupId>
+            <artifactId>jakarta.el-api</artifactId>
             <scope>provided</scope>
             <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.glassfish</groupId>
-            <artifactId>javax.el</artifactId>
+            <artifactId>jakarta.el</artifactId>
             <scope>provided</scope>
             <optional>true</optional>
         </dependency>
@@ -164,6 +164,8 @@
             <artifactId>cglib-nodep</artifactId>
             <scope>test</scope>
         </dependency>
+
+
     </dependencies>
 
     <build>
@@ -213,7 +215,7 @@
             </plugin>
 
             <!-- Governance Plugins; alphabetical order -->
-            <!-- NOTE: Uses less strict config - should be removed in future -->
+            <!-- NOTE: Uses less strict config - should be removed in future
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
@@ -245,6 +247,7 @@
                     </execution>
                 </executions>
             </plugin>
+             -->
 
             <!-- Testing Plugins; alphabetical order -->
             <plugin>
@@ -316,19 +319,24 @@
             <activation>
                 <jdk>[9,)</jdk>
             </activation>
-            <properties>
-                <!-- Remove once servicemix jaxb-2.3 is released: https://issues.apache.org/jira/browse/SM-3854 -->
-                <osgi.additional.Import-Package>
-                    javax.xml.bind;version="[2.2,3)",
-                    javax.xml.bind.annotation;version="[2.2,3)"
-                </osgi.additional.Import-Package>
-            </properties>
             <dependencies>
                 <dependency>
                     <groupId>org.glassfish.jaxb</groupId>
                     <artifactId>jaxb-runtime</artifactId>
                 </dependency>
+              <dependency>
+                <groupId>jakarta.xml.bind</groupId>
+                <artifactId>jakarta.xml.bind-api</artifactId>
+                <version>4.0.1</version>
+              </dependency>
+              <dependency>
+                <groupId>jakarta.activation</groupId>
+                <artifactId>jakarta.activation-api</artifactId>
+                <version>2.1.2</version>
+              </dependency>
+
             </dependencies>
+          <!--
             <build>
                 <plugins>
                     <plugin>
@@ -353,7 +361,7 @@
                             <dependency>
                                 <groupId>org.glassfish.jaxb</groupId>
                                 <artifactId>jaxb-runtime</artifactId>
-                                <version>2.4.0-b180830.0438</version>
+                                <version>4.0.4</version>
                             </dependency>
                         </dependencies>
                     </plugin>
@@ -381,7 +389,7 @@
                         </executions>
                     </plugin>
                 </plugins>
-            </build>
+            </build> -->
         </profile>
     </profiles>
 </project>

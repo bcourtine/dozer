@@ -15,7 +15,7 @@
  */
 package com.github.dozermapper.core.el;
 
-import javax.el.ExpressionFactory;
+import jakarta.el.ExpressionFactory;
 
 import com.github.dozermapper.core.util.MappingUtils;
 
